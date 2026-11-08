@@ -1,5 +1,5 @@
 console.log("STYLEK");
-console.log("قميص");
+console.log("shirt price:");
 console.log(300);
-console.log("سعر البنطلون");
+console.log("pants price:");
 console.log(450);
