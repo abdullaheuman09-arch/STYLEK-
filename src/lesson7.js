@@ -1,0 +1,1 @@
+function showProduct(name, price) { console.log(name + " - " + price + " EGP"); } showProduct("shirt", 300); showProduct("pants", 450); showProduct("jacket", 700);
