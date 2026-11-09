@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const products = [
   { id: 1, name: "قميص", price: 300, store: "محل كفر الشيخ" },
@@ -7,21 +7,35 @@ const products = [
       ];
 
       function App() {
-        return (
-            <main>
-                  <h1>STYLEK</h1>
-                        <p>اكتشف ستايلك في كفر الشيخ</p>
-                              <div className="cards">
-                                      {products.map((product) => (
-                                                <div className="card" key={product.id}>
-                                                            <h2>{product.name}</h2>
-                                                                        <p className="price">{product.price} جنيه</p>
-                                                                                    <p className="store">{product.store}</p>
-                                                                                              </div>
-                                                                                                      ))}
-                                                                                                            </div>
-                                                                                                                </main>
-                                                                                                                  );
-                                                                                                                  }
+        const [query, setQuery] = useState("");
 
-                                                                                                                  export default App;
+          const results = products.filter((product) =>
+              product.name.includes(query.trim())
+                );
+
+                  return (
+                      <main>
+                            <h1>STYLEK</h1>
+                                  <p>اكتشف ستايلك في كفر الشيخ</p>
+                                        <input
+                                                className="search"
+                                                        type="text"
+                                                                placeholder="ابحث عن منتج..."
+                                                                        value={query}
+                                                                                onChange={(e) => setQuery(e.target.value)}
+                                                                                      />
+                                                                                            <div className="cards">
+                                                                                                    {results.map((product) => (
+                                                                                                              <div className="card" key={product.id}>
+                                                                                                                          <h2>{product.name}</h2>
+                                                                                                                                      <p className="price">{product.price} جنيه</p>
+                                                                                                                                                  <p className="store">{product.store}</p>
+                                                                                                                                                            </div>
+                                                                                                                                                                    ))}
+                                                                                                                                                                          </div>
+                                                                                                                                                                                {results.length === 0 && <p className="empty">لا توجد نتائج</p>}
+                                                                                                                                                                                    </main>
+                                                                                                                                                                                      );
+                                                                                                                                                                                      }
+
+                                                                                                                                                                                      export default App;
