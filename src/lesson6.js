@@ -1,0 +1,1 @@
+const products = [{ name: "shirt", price: 300 }, { name: "pants", price: 450 }, { name: "jacket", price: 700 }]; for (const product of products) { console.log(product.name + " - " + product.price); }

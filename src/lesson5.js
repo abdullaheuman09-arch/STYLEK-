@@ -1,0 +1,1 @@
+for (const item of ["shirt", "pants", "jacket"]) { console.log(item); }
