@@ -1,4 +1,8 @@
-* {
+.cards { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; width: 100%; max-width: 360px; }
+.card { background: #1c1c1c; border: 1px solid #c9a45c; border-radius: 12px; padding: 16px; }
+.card h2 { color: #c9a45c; margin: 0 0 8px; font-size: 22px; }
+.card .price { color: #ffffff; font-size: 18px; margin: 0; }
+.card .store { color: #999999; font-size: 14px; margin: 8px 0 0; }* {
   box-sizing: border-box;
 }
 
