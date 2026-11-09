@@ -14,28 +14,38 @@ const products = [
                 );
 
                   return (
-                      <main>
-                            <h1>STYLEK</h1>
-                                  <p>اكتشف ستايلك في كفر الشيخ</p>
-                                        <input
-                                                className="search"
-                                                        type="text"
-                                                                placeholder="ابحث عن منتج..."
-                                                                        value={query}
-                                                                                onChange={(e) => setQuery(e.target.value)}
-                                                                                      />
-                                                                                            <div className="cards">
-                                                                                                    {results.map((product) => (
-                                                                                                              <div className="card" key={product.id}>
-                                                                                                                          <h2>{product.name}</h2>
-                                                                                                                                      <p className="price">{product.price} جنيه</p>
-                                                                                                                                                  <p className="store">{product.store}</p>
-                                                                                                                                                            </div>
-                                                                                                                                                                    ))}
-                                                                                                                                                                          </div>
-                                                                                                                                                                                {results.length === 0 && <p className="empty">لا توجد نتائج</p>}
-                                                                                                                                                                                    </main>
-                                                                                                                                                                                      );
-                                                                                                                                                                                      }
+                      <div className="app">
+                            <div className="header">
+                                    <div className="bell">
+                                              🔔<span className="badge">2</span>
+                                                      </div>
+                                                              <div className="logo">
+                                                                        <h1>STYLE<span>K</span></h1>
+                                                                                  <p>ستايلك .. اختياراتك الأفضل</p>
+                                                                                          </div>
+                                                                                                  <div className="city">📍 كفر الشيخ</div>
+                                                                                                        </div>
 
-                                                                                                                                                                                      export default App;
+                                                                                                              <input
+                                                                                                                      className="search"
+                                                                                                                              type="text"
+                                                                                                                                      placeholder="ابحث عن ملابس أو متجر..."
+                                                                                                                                              value={query}
+                                                                                                                                                      onChange={(e) => setQuery(e.target.value)}
+                                                                                                                                                            />
+
+                                                                                                                                                                  <div className="cards">
+                                                                                                                                                                          {results.map((product) => (
+                                                                                                                                                                                    <div className="card" key={product.id}>
+                                                                                                                                                                                                <h2>{product.name}</h2>
+                                                                                                                                                                                                            <p className="price">{product.price} EGP</p>
+                                                                                                                                                                                                                        <p className="store">{product.store}</p>
+                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                          ))}
+                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                      {results.length === 0 && <p className="empty">لا توجد نتائج</p>}
+                                                                                                                                                                                                                                                          </div>
+                                                                                                                                                                                                                                                            );
+                                                                                                                                                                                                                                                            }
+
+                                                                                                                                                                                                                                                            export default App;
