@@ -17,8 +17,12 @@ body { margin: 0; background: var(--bg); color: var(--text); font-family: Arial,
 .banner p { margin: 8px 0 16px; color: var(--muted); }
 .banner button { background: var(--red); color: #fff; border: 0; border-radius: 20px; padding: 10px 20px; font-size: 16px; }
 .cats { display: flex; gap: 10px; margin-top: 16px; overflow-x: auto; }
-.cat { background: var(--card); border-radius: 14px; padding: 12px; min-width: 76px; text-align: center; font-size: 13px; }
+.cat { background: var(--card); border: 1px solid transparent; color: var(--text); border-radius: 14px; padding: 12px; min-width: 76px; text-align: center; font-size: 13px; cursor: pointer; }
+.cat.active { border-color: var(--red); color: var(--red); }
 .cat div { font-size: 24px; margin-bottom: 4px; }
+.filters { display: flex; gap: 8px; margin-top: 16px; align-items: center; }
+.filters input { width: 100%; min-width: 0; padding: 10px 12px; border-radius: 12px; border: 1px solid #2a2e3a; background: var(--card); color: var(--text); font-size: 14px; }
+.filters button { background: var(--card); color: var(--text); border: 1px solid #2a2e3a; border-radius: 12px; padding: 10px 12px; font-size: 13px; white-space: nowrap; }
 .section-title { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; }
 .section-title h3 { margin: 0; font-size: 20px; border-right: 4px solid var(--red); padding-right: 8px; }
 .section-title span { background: var(--red); color: #fff; border-radius: 16px; padding: 6px 14px; font-size: 13px; }
