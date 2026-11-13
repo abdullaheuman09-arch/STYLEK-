@@ -40,4 +40,4 @@ export type Product = {
                                             if (stock === 0) return { text: "نفد مؤقتًا", cls: "stock-low" };
                                               if (stock <= 5) return { text: "كمية محدودة (" + stock + ")", cls: "stock-low" };
                                                 return { text: "متوفر", cls: "stock-ok" };
-                                                }exportexport
+                                                }
