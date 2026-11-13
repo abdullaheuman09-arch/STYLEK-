@@ -28,16 +28,16 @@ export type Product = {
                                 { icon: "👔", name: "قمصان" }
                                 ];
 
+                                // العربة وطلباتي مؤجلتان لمرحلة لاحقة (مش ملغيتين)
                                 export const tabs = [
                                   { id: "home", icon: "🏠", name: "الرئيسية" },
                                     { id: "favs", icon: "🤍", name: "المفضلة" },
-                                      { id: "cart", icon: "🛒", name: "العربة" },
-                                        { id: "orders", icon: "📋", name: "طلباتي" },
-                                          { id: "account", icon: "👤", name: "حسابي" }
-                                          ];
+                                      { id: "stores", icon: "🏪", name: "المحلات" },
+                                        { id: "account", icon: "👤", name: "حسابي" }
+                                        ];
 
-                                          export function stockInfo(stock: number) {
-                                            if (stock === 0) return { text: "نفد مؤقتًا", cls: "stock-low" };
-                                              if (stock <= 5) return { text: "كمية محدودة (" + stock + ")", cls: "stock-low" };
-                                                return { text: "متوفر", cls: "stock-ok" };
-                                                }
+                                        export function stockInfo(stock: number) {
+                                          if (stock === 0) return { text: "نفد مؤقتًا", cls: "stock-low" };
+                                            if (stock <= 5) return { text: "كمية محدودة (" + stock + ")", cls: "stock-low" };
+                                              return { text: "متوفر", cls: "stock-ok" };
+                                              }
