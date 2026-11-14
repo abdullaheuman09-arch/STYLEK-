@@ -1,175 +1,183 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap');
 
+/* الوضع الغامق (الافتراضي) */
 :root {
   --bg: #080808;
     --card: #171717;
-      --red: #E50920;
-        --red-dark: #A90016;
-          --white: #FFFFFF;
-            --muted: #A5A5A5;
-              --border: #2A2A2A;
-                --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-                  
-                    /* متغيرات قديمة عشان أي كلاس لسه بيستخدمها مايبوظش */
-                      --green: #E50920; 
-                        --gold: #E50920;
-                          --ink: #FFFFFF;
-                            --line: #2A2A2A;
-                            }
+      --header-bg: #080808;
+        --text: #FFFFFF;
+          --muted: #A5A5A5;
+            --border: #2A2A2A;
+              --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+                --red: #E50920;
+                  --red-dark: #A90016;
+                  }
 
-                            * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-                            html { scroll-behavior: smooth; }
-                            body { margin: 0; background: var(--bg); color: var(--white); direction: rtl; font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, Arial, sans-serif; }
-                            button, input { font-family: inherit; }
-                            button { cursor: pointer; transition: 0.2s ease; border: none; outline: none; }
-                            button:active { transform: scale(0.97); }
+                  /* الوضع الفاتح */
+                  [data-theme="light"] {
+                    --bg: #F5F1E8;
+                      --card: #FFFFFF;
+                        --header-bg: #FFFFFF;
+                          --text: #080808;
+                            --muted: #77796F;
+                              --border: #E7E1D6;
+                                --shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+                                  --red: #E50920;
+                                    --red-dark: #A90016;
+                                    }
 
-                            .app { max-width: 480px; margin: 0 auto; min-height: 100vh; padding-bottom: 100px; background: var(--bg); direction: rtl; position: relative; }
+                                    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+                                    html { scroll-behavior: smooth; }
+                                    body { margin: 0; background: var(--bg); color: var(--text); direction: rtl; font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, Arial, sans-serif; transition: background 0.3s, color 0.3s; overflow-x: hidden; }
+                                    button, input { font-family: inherit; }
+                                    button { cursor: pointer; transition: 0.2s ease; border: none; outline: none; }
+                                    button:active { transform: scale(0.97); }
 
-                            /* الهيدر */
-                            .header { background: var(--bg); color: var(--white); padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--border); }
-                            .city { background: transparent; color: var(--white); font-size: 13px; padding: 7px 0; display: flex; align-items: center; gap: 4px; }
-                            .logo { text-align: center; line-height: 1; }
-                            .hanger { display: block; font-size: 16px; color: var(--red); }
-                            .logo h1 { margin: 3px 0 0; font-size: 24px; font-style: normal; letter-spacing: 1px; font-weight: 800; color: var(--white); }
-                            .logo h1 span { color: var(--red); }
-                            .hicons { display: flex; gap: 8px; }
-                            .bell { background: transparent; font-size: 20px; color: var(--white); padding: 5px; }
+                                    .app { max-width: 480px; margin: 0 auto; min-height: 100vh; padding-bottom: 100px; background: var(--bg); direction: rtl; position: relative; overflow-x: hidden; }
 
-                            .offline { background: var(--red-dark); color: var(--white); font-size: 13px; padding: 9px 16px; text-align: center; font-weight: bold; }
+                                    /* الهيدر */
+                                    .header { background: var(--header-bg); color: var(--text); padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--border); transition: background 0.3s; }
+                                    .city { background: transparent; color: var(--text); font-size: 13px; padding: 7px 0; display: flex; align-items: center; gap: 4px; }
+                                    .logo { text-align: center; line-height: 1; }
+                                    .hanger { display: block; font-size: 16px; color: var(--red); }
+                                    .logo h1 { margin: 3px 0 0; font-size: 24px; font-style: normal; letter-spacing: 1px; font-weight: 800; color: var(--text); }
+                                    .logo h1 span { color: var(--red); }
+                                    .hicons { display: flex; gap: 8px; }
+                                    .bell { background: transparent; font-size: 20px; color: var(--text); padding: 5px; }
+                                    .offline { background: var(--red-dark); color: #FFFFFF; font-size: 13px; padding: 9px 16px; text-align: center; font-weight: bold; }
 
-                            /* البحث */
-                            .searchwrap { position: relative; margin: 16px 16px 8px; z-index: 5; }
-                            .search { background: var(--card); border: 1px solid var(--border); border-radius: 12px; display: flex; align-items: center; padding: 0 14px; }
-                            .search:focus-within { border-color: var(--red); }
-                            .search input { flex: 1; border: none; outline: none; background: transparent; padding: 14px 0; font-size: 14px; color: var(--white); min-width: 0; }
-                            .search input::placeholder { color: var(--muted); }
-                            .clearx { background: transparent; font-size: 16px; color: var(--muted); padding: 4px 6px; }
-                            .sug { position: absolute; top: 100%; right: 0; left: 0; margin-top: 6px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; }
-                            .sug button { display: block; width: 100%; text-align: right; background: transparent; border-bottom: 1px solid var(--border); padding: 12px 14px; font-size: 14px; color: var(--white); }
+                                    /* البحث */
+                                    .searchwrap { position: relative; margin: 16px 16px 8px; z-index: 5; }
+                                    .search { background: var(--card); border: 1px solid var(--border); border-radius: 12px; display: flex; align-items: center; padding: 0 14px; transition: background 0.3s, border 0.3s; }
+                                    .search:focus-within { border-color: var(--red); }
+                                    .search input { flex: 1; border: none; outline: none; background: transparent; padding: 14px 0; font-size: 14px; color: var(--text); min-width: 0; }
+                                    .search input::placeholder { color: var(--muted); }
+                                    .clearx { background: transparent; font-size: 16px; color: var(--muted); padding: 4px 6px; }
+                                    .sug { position: absolute; top: 100%; right: 0; left: 0; margin-top: 6px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; }
+                                    .sug button { display: block; width: 100%; text-align: right; background: transparent; border-bottom: 1px solid var(--border); padding: 12px 14px; font-size: 14px; color: var(--text); }
 
-                            /* البانر */
-                            .banner { position: relative; margin: 16px 16px 0; padding: 24px 20px 34px; border-radius: 16px; color: var(--white); background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%); overflow: hidden; }
-                            .banner h2 { margin: 0 0 8px; font-size: 22px; line-height: 1.5; position: relative; z-index: 1; color: var(--white); }
-                            .banner p { margin: 0 0 16px; font-size: 14px; position: relative; z-index: 1; }
-                            .banner button { background: var(--white); color: var(--red); border-radius: 999px; padding: 10px 22px; font-weight: bold; font-size: 14px; position: relative; z-index: 1; }
-                            .dots { position: absolute; bottom: 11px; right: 0; left: 0; display: flex; justify-content: center; gap: 7px; z-index: 2; }
-                            .dotb { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; }
-                            .dotb.on { background: var(--white); width: 20px; border-radius: 999px; }
+                                    /* البانر */
+                                    .banner { position: relative; margin: 16px 16px 0; padding: 24px 20px 34px; border-radius: 16px; color: #FFFFFF; background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%); overflow: hidden; }
+                                    .banner h2 { margin: 0 0 8px; font-size: 22px; line-height: 1.5; position: relative; z-index: 1; color: #FFFFFF; }
+                                    .banner p { margin: 0 0 16px; font-size: 14px; position: relative; z-index: 1; color: #FFFFFF; }
+                                    .banner button { background: #FFFFFF; color: var(--red); border-radius: 999px; padding: 10px 22px; font-weight: bold; font-size: 14px; position: relative; z-index: 1; }
+                                    .dots { position: absolute; bottom: 11px; right: 0; left: 0; display: flex; justify-content: center; gap: 7px; z-index: 2; }
+                                    .dotb { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; }
+                                    .dotb.on { background: #FFFFFF; width: 20px; border-radius: 999px; }
 
-                            /* عناوين الأقسام */
-                            .sec-head { margin: 24px 16px 12px; }
-                            .sec-head h3 { margin: 0; font-size: 18px; font-weight: 700; color: var(--white); padding-right: 10px; border-right: 3px solid var(--red); }
-                            .rowhead { display: flex; align-items: center; justify-content: space-between; }
-                            .seeall { background: transparent; color: var(--red); font-size: 14px; font-weight: bold; }
+                                    /* عناوين الأقسام */
+                                    .sec-head { margin: 24px 16px 12px; }
+                                    .sec-head h3 { margin: 0; font-size: 18px; font-weight: 700; color: var(--text); padding-right: 10px; border-right: 3px solid var(--red); }
+                                    .rowhead { display: flex; align-items: center; justify-content: space-between; }
+                                    .seeall { background: transparent; color: var(--red); font-size: 14px; font-weight: bold; }
 
-                            /* الأقسام */
-                            .catgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 0 16px; }
-                            .catbox { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 4px; font-size: 12px; color: var(--white); display: flex; flex-direction: column; align-items: center; gap: 8px; }
-                            .catbox span { font-size: 28px; }
-                            .catbox:active { border-color: var(--red); background: #222; }
+                                    /* الأقسام */
+                                    .catgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 0 16px; }
+                                    .catbox { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 4px; font-size: 12px; color: var(--text); display: flex; flex-direction: column; align-items: center; gap: 8px; transition: background 0.3s, border 0.3s; }
+                                    .catbox span { font-size: 28px; }
+                                    .catbox:active { border-color: var(--red); }
 
-                            /* كروت المنتجات */
-                            .hrow { display: flex; gap: 12px; overflow-x: auto; padding: 0 16px 10px; scrollbar-width: none; }
-                            .hrow::-webkit-scrollbar { display: none; }
-                            .hcard { flex: 0 0 165px; }
-                            .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 16px; }
-                            .card { position: relative; background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; }
-                            .card:active { transform: scale(0.98); }
-                            .card .img { height: 160px; background: #1A1A1A; display: flex; align-items: center; justify-content: center; font-size: 60px; overflow: hidden; position: relative; }
-                            .pimg { width: 100%; height: 100%; object-fit: cover; display: block; }
-                            .heart { position: absolute; top: 8px; left: 8px; width: 32px; height: 32px; border-radius: 50%; background: rgba(23, 23, 23, 0.7); backdrop-filter: blur(4px); font-size: 16px; display: flex; align-items: center; justify-content: center; color: var(--white); border: 1px solid rgba(255,255,255,0.1); z-index: 2; }
-                            .discount { position: absolute; top: 8px; right: 8px; background: var(--red); color: var(--white); font-size: 11px; font-weight: bold; border-radius: 6px; padding: 4px 8px; z-index: 2; }
-                            .soldout { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: var(--white); font-size: 12px; border-radius: 8px; padding: 6px 12px; z-index: 3; white-space: nowrap; }
-                            .info { padding: 10px 12px 14px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
-                            .info h2 { margin: 0 0 6px; font-size: 14px; color: var(--white); line-height: 1.4; font-weight: 500; }
-                            .price { margin: 0 0 6px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-                            .price span:first-child { color: var(--red); font-weight: 700; font-size: 16px; }
-                            .old { color: var(--muted); text-decoration: line-through; font-size: 12px; }
-                            .shop { margin: 0; font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
-                            .verified { color: #1DA1F2; font-weight: bold; } 
+                                    /* كروت المنتجات */
+                                    .hrow { display: flex; gap: 12px; overflow-x: auto; padding: 0 16px 10px; scrollbar-width: none; }
+                                    .hrow::-webkit-scrollbar { display: none; }
+                                    .hcard { flex: 0 0 165px; }
+                                    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 16px; }
+                                    .card { position: relative; background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; transition: background 0.3s, border 0.3s; }
+                                    .card:active { transform: scale(0.98); }
+                                    .card .img { height: 160px; background: var(--bg); display: flex; align-items: center; justify-content: center; font-size: 60px; overflow: hidden; position: relative; transition: background 0.3s; }
+                                    .pimg { width: 100%; height: 100%; object-fit: cover; display: block; }
+                                    .heart { position: absolute; top: 8px; left: 8px; width: 32px; height: 32px; border-radius: 50%; background: rgba(128, 128, 128, 0.2); backdrop-filter: blur(4px); font-size: 16px; display: flex; align-items: center; justify-content: center; color: var(--text); border: 1px solid var(--border); z-index: 2; }
+                                    .discount { position: absolute; top: 8px; right: 8px; background: var(--red); color: #FFFFFF; font-size: 11px; font-weight: bold; border-radius: 6px; padding: 4px 8px; z-index: 2; }
+                                    .soldout { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: #FFFFFF; font-size: 12px; border-radius: 8px; padding: 6px 12px; z-index: 3; white-space: nowrap; }
+                                    .info { padding: 10px 12px 14px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+                                    .info h2 { margin: 0 0 6px; font-size: 14px; color: var(--text); line-height: 1.4; font-weight: 500; }
+                                    .price { margin: 0 0 6px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+                                    .price span:first-child { color: var(--red); font-weight: 700; font-size: 16px; }
+                                    .old { color: var(--muted); text-decoration: line-through; font-size: 12px; }
+                                    .shop { margin: 0; font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+                                    .verified { color: #1DA1F2; font-weight: bold; }
 
-                            /* المحلات */
-                            .storelist { display: flex; flex-direction: column; gap: 10px; padding: 0 16px; }
-                            .storecard { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 12px; display: flex; align-items: center; gap: 12px; }
-                            .storecard .logo-circle { margin: 0; flex-shrink: 0; }
-                            .sinfo { flex: 1; min-width: 0; font-size: 14px; }
-                            .smeta { color: var(--muted); font-size: 12px; margin-top: 4px; }
-                            .storecard button { background: transparent; color: var(--white); border: 1px solid var(--border); border-radius: 999px; padding: 8px 14px; font-size: 12px; font-weight: bold; flex-shrink: 0; }
-                            .storecard button:active { background: var(--red); border-color: var(--red); }
+                                    /* المحلات */
+                                    .storelist { display: flex; flex-direction: column; gap: 10px; padding: 0 16px; }
+                                    .storecard { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 12px; display: flex; align-items: center; gap: 12px; transition: background 0.3s, border 0.3s; }
+                                    .storecard .logo-circle { margin: 0; flex-shrink: 0; }
+                                    .sinfo { flex: 1; min-width: 0; font-size: 14px; color: var(--text); }
+                                    .smeta { color: var(--muted); font-size: 12px; margin-top: 4px; }
+                                    .storecard button { background: transparent; color: var(--text); border: 1px solid var(--border); border-radius: 999px; padding: 8px 14px; font-size: 12px; font-weight: bold; flex-shrink: 0; }
+                                    .storecard button:active { background: var(--red); border-color: var(--red); color: #FFFFFF; }
 
-                            /* الفلاتر */
-                            .chipsrow { display: flex; gap: 8px; flex-wrap: wrap; padding: 0 16px; margin-top: 10px; }
-                            .fchip { background: var(--card); color: var(--white); border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; font-size: 13px; }
-                            .filters { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; margin: 14px 16px 0; }
-                            .filters input { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--card); font-size: 14px; color: var(--white); }
-                            .filters input::placeholder { color: var(--muted); }
-                            .filters button { background: var(--red); border-radius: 10px; padding: 0 16px; font-size: 13px; color: var(--white); font-weight: bold; }
+                                    /* الفلاتر */
+                                    .chipsrow { display: flex; gap: 8px; flex-wrap: wrap; padding: 0 16px; margin-top: 10px; }
+                                    .fchip { background: var(--card); color: var(--text); border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; font-size: 13px; }
+                                    .filters { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; margin: 14px 16px 0; }
+                                    .filters input { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: var(--card); font-size: 14px; color: var(--text); width: 100%; min-width: 0; box-sizing: border-box; }
+                                    .filters input::placeholder { color: var(--muted); }
+                                    .filters button { background: var(--red); border-radius: 10px; padding: 0 16px; font-size: 13px; color: #FFFFFF; font-weight: bold; white-space: nowrap; }
 
-                            /* شاشات فاضية */
-                            .emptybox, .soonbox { margin: 24px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 30px 18px; text-align: center; }
-                            .emptyicon, .soonicon { font-size: 40px; margin-bottom: 10px; }
-                            .emptybox p, .soonbox p { color: var(--muted); font-size: 14px; margin: 8px 0 14px; line-height: 1.6; }
-                            .soonbox h3 { margin: 10px 0 0; font-size: 18px; color: var(--white); }
-                            .emptybox button, .soonbox button { background: var(--red); color: var(--white); border-radius: 999px; padding: 10px 22px; font-size: 14px; font-weight: bold; }
-                            .soon, .page { text-align: center; color: var(--muted); padding: 20px 16px; font-size: 13px; }
+                                    /* شاشات فاضية */
+                                    .emptybox, .soonbox { margin: 24px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 30px 18px; text-align: center; transition: background 0.3s; }
+                                    .emptyicon, .soonicon { font-size: 40px; margin-bottom: 10px; }
+                                    .emptybox p, .soonbox p { color: var(--muted); font-size: 14px; margin: 8px 0 14px; line-height: 1.6; }
+                                    .soonbox h3 { margin: 10px 0 0; font-size: 18px; color: var(--text); }
+                                    .emptybox button, .soonbox button { background: var(--red); color: #FFFFFF; border-radius: 999px; padding: 10px 22px; font-size: 14px; font-weight: bold; }
+                                    .soon, .page { text-align: center; color: var(--muted); padding: 20px 16px; font-size: 13px; }
 
-                            /* الشريط العلوي وصفحة المحل */
-                            .top-bar { display: flex; align-items: center; justify-content: space-between; background: var(--bg); padding: 12px 16px; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
-                            .top-bar .t { font-weight: bold; font-size: 16px; color: var(--white); }
-                            .round { width: 36px; height: 36px; border-radius: 50%; background: var(--card); font-size: 16px; color: var(--white); display: flex; align-items: center; justify-content: center; }
-                            .shop-head { background: var(--card); margin: 16px; border-radius: 16px; padding: 20px; text-align: center; border: 1px solid var(--border); }
-                            .shop-head h2 { margin: 10px 0; font-size: 20px; color: var(--white); }
-                            .shop-head p { margin: 6px 0; font-size: 13px; color: var(--muted); }
-                            .logo-circle { width: 60px; height: 60px; border-radius: 50%; background: #2A2A2A; color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto; }
+                                    /* الشريط العلوي وصفحة المحل */
+                                    .top-bar { display: flex; align-items: center; justify-content: space-between; background: var(--bg); padding: 12px 16px; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
+                                    .top-bar .t { font-weight: bold; font-size: 16px; color: var(--text); }
+                                    .round { width: 36px; height: 36px; border-radius: 50%; background: var(--card); font-size: 16px; color: var(--text); display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); }
+                                    .shop-head { background: var(--card); margin: 16px; border-radius: 16px; padding: 20px; text-align: center; border: 1px solid var(--border); }
+                                    .shop-head h2 { margin: 10px 0; font-size: 20px; color: var(--text); }
+                                    .shop-head p { margin: 6px 0; font-size: 13px; color: var(--muted); }
+                                    .logo-circle { width: 60px; height: 60px; border-radius: 50%; background: var(--bg); color: var(--text); display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto; border: 1px solid var(--border); }
 
-                            /* اختيار المحافظة */
-                            .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 50; display: flex; align-items: flex-end; justify-content: center; backdrop-filter: blur(2px); }
-                            .govsheet { background: var(--card); width: 100%; max-width: 480px; border-radius: 20px 20px 0 0; padding: 20px 16px 30px; max-height: 80vh; overflow-y: auto; border-top: 1px solid var(--border); }
-                            .govsheet h3 { margin: 0 0 14px; font-size: 18px; color: var(--white); }
-                            .govrow { display: flex; width: 100%; align-items: center; justify-content: space-between; background: transparent; border-bottom: 1px solid var(--border); padding: 15px 4px; font-size: 15px; color: var(--white); }
-                            .govrow.on { color: var(--red); font-weight: bold; }
-                            .okb { background: rgba(229, 9, 32, 0.1); color: var(--red); font-size: 12px; padding: 4px 10px; border-radius: 999px; }
-                            .soonb { background: var(--border); color: var(--muted); font-size: 12px; padding: 4px 10px; border-radius: 999px; }
+                                    /* اختيار المحافظة */
+                                    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 50; display: flex; align-items: flex-end; justify-content: center; backdrop-filter: blur(2px); }
+                                    .govsheet { background: var(--card); width: 100%; max-width: 480px; border-radius: 20px 20px 0 0; padding: 20px 16px 30px; max-height: 80vh; overflow-y: auto; border-top: 1px solid var(--border); }
+                                    .govsheet h3 { margin: 0 0 14px; font-size: 18px; color: var(--text); }
+                                    .govrow { display: flex; width: 100%; align-items: center; justify-content: space-between; background: transparent; border-bottom: 1px solid var(--border); padding: 15px 4px; font-size: 15px; color: var(--text); }
+                                    .govrow.on { color: var(--red); font-weight: bold; }
+                                    .okb { background: rgba(229, 9, 32, 0.1); color: var(--red); font-size: 12px; padding: 4px 10px; border-radius: 999px; }
+                                    .soonb { background: var(--bg); color: var(--muted); font-size: 12px; padding: 4px 10px; border-radius: 999px; }
 
-                            /* تفاصيل المنتج */
-                            .gallery { position: relative; height: 320px; background: #1A1A1A; display: flex; align-items: center; justify-content: center; font-size: 120px; }
-                            .counter { position: absolute; bottom: 20px; background: rgba(0,0,0,0.6); color: var(--white); font-size: 12px; padding: 4px 12px; border-radius: 999px; }
-                            .sheet { background: var(--bg); position: relative; border-radius: 24px 24px 0 0; padding: 24px 16px 30px; margin-top: -20px; }
-                            .sheet h2 { margin: 0 0 8px; font-size: 20px; color: var(--white); }
-                            .sheet .price span:first-child { font-size: 24px; color: var(--red); }
-                            .off { background: var(--red); color: var(--white); font-size: 12px; font-weight: bold; padding: 4px 8px; border-radius: 6px; }
-                            .line { margin: 8px 0; font-size: 14px; color: var(--muted); }
-                            .link { color: var(--white); font-weight: bold; cursor: pointer; text-decoration: underline; }
-                            .note { margin: 8px 0; font-size: 12px; color: var(--muted); }
-                            .sheet h4 { margin: 20px 0 10px; font-size: 15px; color: var(--white); }
-                            .chips { display: flex; gap: 10px; flex-wrap: wrap; }
-                            .chip { min-width: 46px; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border); background: var(--card); font-size: 14px; color: var(--white); text-align: center; }
-                            .chip.on { border-color: var(--red); color: var(--red); font-weight: bold; background: rgba(229, 9, 32, 0.1); }
-                            .chip.off-chip { opacity: 0.3; text-decoration: line-through; cursor: not-allowed; }
-                            .dot { width: 32px; height: 32px; border-radius: 50%; border: 2px solid transparent; }
-                            .dot.on { border-color: var(--white); box-shadow: 0 0 0 2px var(--bg) inset; }
-                            .qty { display: inline-flex; align-items: center; gap: 16px; border: 1px solid var(--border); border-radius: 10px; padding: 4px 12px; background: var(--card); }
-                            .qty button { background: transparent; font-size: 20px; width: 30px; height: 30px; color: var(--white); display: flex; align-items: center; justify-content: center; }
-                            .desc { margin: 0; font-size: 14px; line-height: 1.8; color: var(--muted); }
-                            .cta { display: block; width: 100%; margin-top: 24px; padding: 14px; border-radius: 12px; text-align: center; font-size: 16px; font-weight: bold; text-decoration: none; }
-                            .cta.wa { background: var(--red); color: var(--white); }
-                            .cta.disabled { background: #2A2A2A; color: var(--muted); }
-                            .stock-ok { color: #1DA1F2; font-weight: bold; }
-                            .stock-low { color: #F59E0B; font-weight: bold; }
+                                    /* تفاصيل المنتج */
+                                    .gallery { position: relative; height: 320px; background: var(--bg); display: flex; align-items: center; justify-content: center; font-size: 120px; }
+                                    .counter { position: absolute; bottom: 20px; background: rgba(128,128,128,0.4); color: var(--text); font-size: 12px; padding: 4px 12px; border-radius: 999px; backdrop-filter: blur(2px); }
+                                    .sheet { background: var(--bg); position: relative; border-radius: 24px 24px 0 0; padding: 24px 16px 30px; margin-top: -20px; }
+                                    .sheet h2 { margin: 0 0 8px; font-size: 20px; color: var(--text); }
+                                    .sheet .price span:first-child { font-size: 24px; color: var(--red); }
+                                    .off { background: var(--red); color: #FFFFFF; font-size: 12px; font-weight: bold; padding: 4px 8px; border-radius: 6px; }
+                                    .line { margin: 8px 0; font-size: 14px; color: var(--muted); }
+                                    .link { color: var(--text); font-weight: bold; cursor: pointer; text-decoration: underline; }
+                                    .note { margin: 8px 0; font-size: 12px; color: var(--muted); }
+                                    .sheet h4 { margin: 20px 0 10px; font-size: 15px; color: var(--text); }
+                                    .chips { display: flex; gap: 10px; flex-wrap: wrap; }
+                                    .chip { min-width: 46px; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border); background: var(--card); font-size: 14px; color: var(--text); text-align: center; }
+                                    .chip.on { border-color: var(--red); color: var(--red); font-weight: bold; background: rgba(229, 9, 32, 0.05); }
+                                    .chip.off-chip { opacity: 0.3; text-decoration: line-through; cursor: not-allowed; }
+                                    .dot { width: 32px; height: 32px; border-radius: 50%; border: 2px solid transparent; }
+                                    .dot.on { border-color: var(--text); box-shadow: 0 0 0 2px var(--bg) inset; }
+                                    .qty { display: inline-flex; align-items: center; gap: 16px; border: 1px solid var(--border); border-radius: 10px; padding: 4px 12px; background: var(--card); }
+                                    .qty button { background: transparent; font-size: 20px; width: 30px; height: 30px; color: var(--text); display: flex; align-items: center; justify-content: center; }
+                                    .desc { margin: 0; font-size: 14px; line-height: 1.8; color: var(--muted); }
+                                    .cta { display: block; width: 100%; margin-top: 24px; padding: 14px; border-radius: 12px; text-align: center; font-size: 16px; font-weight: bold; text-decoration: none; }
+                                    .cta.wa { background: var(--red); color: #FFFFFF; }
+                                    .cta.disabled { background: var(--border); color: var(--muted); }
+                                    .stock-ok { color: #1DA1F2; font-weight: bold; }
+                                    .stock-low { color: #F59E0B; font-weight: bold; }
 
-                            /* الشريط السفلي */
-                            .nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; height: 68px; background: var(--bg); border-top: 1px solid var(--border); display: flex; z-index: 30; padding-bottom: env(safe-area-inset-bottom, 0px); }
-                            .nav-item { flex: 1; background: transparent; color: var(--muted); font-size: 11px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
-                            .nav-item span { font-size: 22px; }
-                            .nav-item.active { color: var(--red); font-weight: bold; }
-                            .nav-item.home-btn span { background: var(--bg); border: 1px solid var(--border); color: var(--white); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: -24px; }
-                            .nav-item.home-btn.active span { background: var(--red); color: var(--white); border-color: var(--red); }
+                                    /* الشريط السفلي */
+                                    .nav { position: fixed; bottom: 0; left: 0; right: 0; margin: 0 auto; width: 100%; max-width: 480px; height: 68px; background: var(--card); border-top: 1px solid var(--border); display: flex; z-index: 30; padding-bottom: env(safe-area-inset-bottom, 0px); transition: background 0.3s; }
+                                    .nav-item { flex: 1; background: transparent; color: var(--muted); font-size: 11px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+                                    .nav-item span { font-size: 22px; }
+                                    .nav-item.active { color: var(--red); font-weight: bold; }
+                                    .nav-item.home-btn span { background: var(--bg); border: 1px solid var(--border); color: var(--text); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: -24px; transition: all 0.3s; }
+                                    .nav-item.home-btn.active span { background: var(--red); color: #FFFFFF; border-color: var(--red); }
 
-                            @media (max-width: 360px) {
-                              .cards { gap: 8px; padding: 0 12px; }
-                                .card .img { height: 140px; }
-                                  .info { padding: 8px; }
-                                    .catgrid { gap: 8px; padding: 0 12px; }
-                                      .nav-item { font-size: 10px; }
-                                      }
+                                    @media (max-width: 360px) {
+                                      .cards { gap: 8px; padding: 0 12px; }
+                                        .card .img { height: 140px; }
+                                          .info { padding: 8px; }
+                                            .catgrid { gap: 8px; padding: 0 12px; }
+                                              .nav-item { font-size: 10px; }
+                                              }
